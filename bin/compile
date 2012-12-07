@@ -1,0 +1,17 @@
+#!/bin/sh
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+FILENAME=buildpack_gauche-0.9.3.3_slib-3b3.tgz
+URL=https://s3.amazonaws.com/heroku-buildpack-gauche
+
+mkdir -p $BUILD_DIR $CACHE_DIR
+
+if [ ! -e $CACHE_DIR/$FILENAME ]; then
+  echo "-----> Fetching"
+  curl $URL/$FILENAME -s -o $CACHE_DIR/$FILENAME
+fi
+
+echo "-----> Extracting"
+tar zxf $CACHE_DIR/$FILENAME -C $BUILD_DIR

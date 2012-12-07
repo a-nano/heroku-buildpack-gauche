@@ -1,0 +1,14 @@
+#!/bin/sh
+
+BUILD_DIR=$1
+GAUCHE_DIR=/app/.gauche.d/gauche
+
+cat << EOF
+---
+config_vars:
+  PATH: $PATH:$GAUCHE_DIR/bin
+  LD_LIBRARY_PATH: $GAUCHE_DIR/lib
+  GAUCHE_LOAD_PATH: $GAUCHE_DIR/share/gauche-0.9/0.9.3.3/lib
+default_process_types:
+  console: $GAUCHE_DIR/bin/gosh
+EOF

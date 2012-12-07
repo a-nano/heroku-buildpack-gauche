@@ -1,0 +1,6 @@
+#!/bin/sh
+
+BUILD_DIR=$1
+
+echo "Gauche"
+exit 0
