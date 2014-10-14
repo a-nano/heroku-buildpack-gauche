@@ -1,13 +1,13 @@
 # Heroku buildpack: Gauche
 
-This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for [Gauche][gauche] apps.
+This is a [Heroku buildpack][heroku-buildpack] for [Gauche][gauche] apps.
 
 Usage
 -----
 
 Example usage:
 
-    $ heroku create --stack cedar --buildpack http://github.com/naduma/heroku-buildpack-gauche.git
+    $ heroku create --buildpack https://github.com/naduma/heroku-buildpack-gauche.git
 
     $ git push heroku master
 
@@ -16,7 +16,10 @@ Notes
 
 All libraries are stored in /app/.gauche.d
 
-[Gauche][gauche] 0.9.3.3 and [SLIB][slib] 3b3.
+[Gauche][gauche] 0.9.4, [SLIB][slib] 3b4, [Gauche-dbd-pg][gauche-dbd-pg] 0.2.1 and [Gauche-makiki][gauche-makiki] 0.1.
 
+[heroku-buildpack]: http://devcenter.heroku.com/articles/buildpacks
 [gauche]: http://practical-scheme.net/gauche/
 [slib]: http://people.csail.mit.edu/jaffer/SLIB.html
+[gauche-dbd-pg]: https://github.com/kahua/Gauche-dbd-pg
+[gauche-makiki]: https://github.com/shirok/Gauche-makiki
