@@ -2,16 +2,24 @@
 
 BUILD_DIR=$1
 CACHE_DIR=$2
+GAUCHE_DIR=/app/.gauche.d/gauche-0.9.4
 
 FILENAME=gauche.d.tgz
-URL=https://raw.githubusercontent.com/naduma/heroku-gauche/master/setup
+URL=https://github.com/naduma/heroku-buildpack-gauche/blob/master/setup
+
 
 mkdir -p $BUILD_DIR $CACHE_DIR
 
 if [ ! -e $CACHE_DIR/$FILENAME ]; then
   echo "-----> Fetching"
-  curl $URL/$FILENAME -s -ssl3 -o $CACHE_DIR/$FILENAME
+  curl -L $URL/$FILENAME?raw=true -o $CACHE_DIR/$FILENAME
 fi
 
 echo "-----> Extracting"
 tar zxf $CACHE_DIR/$FILENAME -C $BUILD_DIR
+
+mkdir -p $BUILD_DIR/.profile.d
+export_line="export PATH=${GAUCHE_DIR}/bin:\$PATH
+             export LD_LIBRARY_PATH=${GAUCHE_DIR}/lib
+             export GAUCHE_LOAD_PATH=${GAUCHE_DIR}/share/gauche-0.9/0.9.4/lib"
+echo $export_line >> $BUILD_DIR/.profile.d/path.sh
