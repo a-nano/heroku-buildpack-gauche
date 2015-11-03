@@ -16,7 +16,7 @@ Notes
 
 All libraries are stored in /app/.gauche.d
 
-[Gauche][gauche] 0.9.4, [SLIB][slib] 3b4, [Gauche-dbd-pg][gauche-dbd-pg] 0.2.1 and [Gauche-makiki][gauche-makiki] 0.1.
+[Gauche][gauche] 0.9.4, [SLIB][slib] 3b5, [Gauche-dbd-pg][gauche-dbd-pg] 0.2.1 and [Gauche-makiki][gauche-makiki].
 
 [heroku-buildpack]: http://devcenter.heroku.com/articles/buildpacks
 [gauche]: http://practical-scheme.net/gauche/
